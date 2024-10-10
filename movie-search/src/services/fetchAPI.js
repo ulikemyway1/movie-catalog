@@ -2,7 +2,9 @@ import debounce from '@/utils/debounce'
 
 const URL_BASE = 'https://www.omdbapi.com/?i=tt3896198&apikey=8523cbb8'
 
-async function fetchAPI(query, page) {
+async function fetchAPI(query, page, callback) {
+  if (callback) callback()
+
   let url = URL_BASE
   if (!query) {
     return

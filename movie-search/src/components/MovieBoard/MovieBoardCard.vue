@@ -15,7 +15,7 @@ const posterSRC = Poster && Poster !== 'N/A' ? Poster : placeholder
 </script>
 
 <template>
-  <div class="movie-card">
+  <div class="movie-card" tabindex="0">
     <img
       class="movie-card__poster"
       :style="{ objectFit: Poster !== 'N/A' ? 'cover' : 'contain' }"
@@ -40,7 +40,7 @@ const posterSRC = Poster && Poster !== 'N/A' ? Poster : placeholder
   justify-content: space-between;
   gap: 5px;
   width: 300px;
-  height: 600px;
+  height: 400px;
   background-color: var(--main-bg);
   border: 2px solid var(--search-panel-border);
   border-radius: 12px;
@@ -64,11 +64,22 @@ const posterSRC = Poster && Poster !== 'N/A' ? Poster : placeholder
 
 .movie-card__poster {
   width: 100%;
-  height: 400px;
+  height: 200px;
   border-radius: 12px;
   object-fit: cover;
   transform: scale(1.2);
   transition: all 0.3s;
+}
+
+.movie-card:focus {
+  filter: drop-shadow(0 0 10px var(--search-panel-border));
+  transform: scale(1.1);
+  z-index: 100;
+}
+
+.movie-card:focus .movie-card__poster {
+  transform: scale(1);
+  object-fit: contain;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -81,6 +92,8 @@ const posterSRC = Poster && Poster !== 'N/A' ? Poster : placeholder
   .movie-card:hover .movie-card__poster {
     transform: scale(1);
     object-fit: contain;
+    width: auto;
+    height: 250px;
   }
 }
 </style>

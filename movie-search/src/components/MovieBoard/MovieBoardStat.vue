@@ -15,7 +15,7 @@ const { query, resultsCount } = defineProps({
 
 <template>
   <div class="movie-board__stat">
-    <div v-if="resultsCount && query" class="movie-board__header">
+    <div v-if="query" class="movie-board__header">
       <h3 v-if="query" class="movie-board__stat-title">You searched for: {{ query.trim() }}.</h3>
       <p v-if="resultsCount > 1">Found {{ resultsCount }} results.</p>
       <p v-if="resultsCount == 1">Found {{ resultsCount }} result.</p>
