@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue'
 import Header from './components/Header/Header.vue'
 import fetchAPIDebounced from '@/services/fetchAPI'
-import MovieBoardStat from '@/components/MovieBoard/MovieBoardStat.vue'
+import MovieBoard from '@/components/MovieBoard/MovieBoard.vue'
 const movieList = ref([])
 const movieListCount = ref(0)
 const query = ref('')
@@ -27,7 +27,7 @@ watch(query, async () => {
     <Header :setQuery="setQuery" :setPage="setPage" />
 
     <main>
-      <MovieBoardStat :query="query" :resultsCount="movieListCount" />
+      <MovieBoard :query="query" :resultsCount="movieListCount" :movieInfoArray="movieList" />
     </main>
   </div>
 </template>

@@ -34,6 +34,7 @@ const { title, setPage, setQuery } = defineProps({
   gap: 20px;
   justify-content: space-between;
   background-color: var(--main-bg);
+  border-radius: 12px;
 }
 
 .title {
